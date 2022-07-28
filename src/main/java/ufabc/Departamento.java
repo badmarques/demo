@@ -17,6 +17,8 @@ public class Departamento implements Serializable{
     @GeneratedValue
     private long id;
 
+
+
     private String nome;
 
     @OneToMany
@@ -31,6 +33,10 @@ public class Departamento implements Serializable{
         this.nome = nome;
     }
 
+    public long getId() {
+        return id;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -43,6 +49,12 @@ public class Departamento implements Serializable{
         
         if(! funcionarios.contains(f)){
             funcionarios.add(f);
+        }
+    }
+
+    public void imprimeFuncionários(){
+        for (Funcionário f : funcionarios) {
+            System.out.println(f.getId() + " " + f.getNome() + " " + f.getSobrenome());
         }
     }
 

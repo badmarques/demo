@@ -30,8 +30,14 @@ public class Main
         entityManager.persist(depto);
         entityManager.getTransaction().commit();
 
+
+        //carrega deptoPesquisa a partir do banco de dados
+        Departamento deptoPesquisa = entityManager.find(Departamento.class, depto.getId());
+        System.out.println(deptoPesquisa.getNome());
+        deptoPesquisa.imprimeFuncionários();
+
+
         entityManager.close();
         entityManagerFactory.close();
-
     }
 }
